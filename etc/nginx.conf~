@@ -1,15 +1,12 @@
-    upstream backend {
-	server localhost:8080 weight=1;
-
-
-	}
-
-
   server {
     listen 80 default;
     location /hello/ {
     	  proxy_pass http://backend;
     }
 
+    upstream backend {
+	server localhost:8080 weight=1;
 
+
+	}
   }
